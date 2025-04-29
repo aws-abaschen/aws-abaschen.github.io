@@ -4,7 +4,6 @@ caches:
 
 baseURL : "https://gh.people.aws.dev"
 theme : "LoveIt"
-themesDir : "../.."
 
 title : "AB"
 defaultContentLanguage: "en"
