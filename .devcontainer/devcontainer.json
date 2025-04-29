@@ -1,0 +1,64 @@
+{
+  "name": "TypeScript",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "features": {
+    // "ghcr.io/devcontainers-extra/features/aws-cdk": {},
+    "ghcr.io/devcontainers-extra/features/pnpm": {},
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "extended": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "amazonwebservices.amazon-q-vscode",
+        "budparr.language-hugo-vscode",
+        "GitHub.vscode-github-actions",
+        "mblode.twig-language-2"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "javascript.updateImportsOnFileMove.enabled": "always",
+        "github.gitProtocol": "ssh",
+        "[markdown]": {
+          "editor.quickSuggestions": {
+            "other": "on",
+            "comments": "on",
+            "strings": "on"
+          }
+        },
+        "files.associations": {
+          "*.html": "twig"
+        },
+        "emmet.includeLanguages": {
+          "twig": "html"
+        }
+      }
+    }
+  },
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.aws",
+      "target": "/home/node/.aws",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/.ssh",
+      "target": "/home/node/.ssh",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/.gitconfig-personal",
+      "target": "/home/node/.gitconfig-personal",
+      "type": "bind"
+    },
+    {
+      "source": "pnpm",
+      "target": "${containerWorkspaceFolder}/.pnpm-store",
+      "type": "volume"
+    }
+  ],
+  "postCreateCommand": "sudo chgrp 1000 .pnpm-store/ && sudo chmod g+rwx .pnpm-store/",
+  "remoteUser": "node"
+}

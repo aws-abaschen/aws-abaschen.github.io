@@ -2,10 +2,10 @@ caches:
   images:
     dir: :cacheDir/images
 
-baseURL : "https://gh.people.aws.dev"
-theme : "LoveIt"
+baseURL: "https://gh.abaschen.people.aws.dev"
+theme: "LoveIt"
 
-title : "AB"
+title: "aws-abaschen"
 defaultContentLanguage: "en"
 languageCode: "en"
 languageName: "English"
@@ -16,37 +16,36 @@ enableGitInfo: true
 enableEmoji: true
 ignoreErrors: ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
-
 pagination:
-    disableAliases: false
-    pagerSize: 10
-    path: "page"
+  disableAliases: false
+  pagerSize: 10
+  path: "page"
 
 menu:
   main:
-  - weight: 1
-    identifier: "posts"
-    pre: ""
-    post: ""
-    name: "Posts"
-    url: "/posts/"
-    title: ""
+    - weight: 1
+      identifier: "posts"
+      pre: ""
+      post: ""
+      name: "Posts"
+      url: "/posts/"
+      title: ""
 
-  - weight: 2
-    identifier: "tags"
-    pre: ""
-    post: ""
-    name: "Tags"
-    url: "/tags/"
-    title: ""
+    - weight: 2
+      identifier: "tags"
+      pre: ""
+      post: ""
+      name: "Tags"
+      url: "/tags/"
+      title: ""
 
-  - weight: 3
-    identifier: "categories"
-    pre: ""
-    post: ""
-    name: "Categories"
-    url: "/categories/"
-    title: ""
+    - weight: 3
+      identifier: "categories"
+      pre: ""
+      post: ""
+      name: "Categories"
+      url: "/categories/"
+      title: ""
 
 params:
   defaultTheme: "auto"
@@ -101,7 +100,14 @@ params:
     tileColor: "#da532c"
 
   search:
-    enable: false
+    enable: true
+    type: lunr
+    contentLength: 4000
+    placeholder: ""
+    maxResultLength: 10
+    snippetLength: 30
+    highlightTag: "em"
+    absoluteURL: false
 
   home:
     rss: 10
@@ -136,7 +142,7 @@ params:
       enable: true
       keepStatic: false
       auto: true
-    code: 
+    code:
       copy: true
       maxShownLines: 50
       render:
@@ -159,7 +165,7 @@ params:
       Reddit: true
     comment:
       enable: false
-      
+
   typeit:
     speed: 100
     cursorSpeed: 1000
@@ -173,7 +179,7 @@ params:
   analytics:
     google:
       id: "G-5XVFZ270FE"
-      respectDoNotTrack: false
+      respectDoNotTrack: true
 
   cookieconsent:
     enable: false
@@ -218,12 +224,11 @@ sitemap:
   priority: 0.5
 
 permalinks:
-  posts: ":filename"
+  posts: ":contentbasename"
 
 privacy:
   googleAnalytics:
-   respectDoNotTrack: true
-  
+    respectDoNotTrack: true
 
 mediaTypes:
   "text/plain":
@@ -290,19 +295,3 @@ languages:
         name: ""
         url: "https://github.com/aws-abaschen"
         title: "GitHub"
-    params:
-      search:
-        enable: false
-      home:
-        rss: 10
-        profile:
-          enable: true
-          gravatarEmail: ""
-          avatarURL: "/images/avatar.png"
-          title: ""
-          subtitle: "A Clean, Elegant but Advanced Hugo Theme"
-          typeit: true
-          social: true
-          disclaimer: ""
-      social:
-        GitHub: "aws-abaschen"
